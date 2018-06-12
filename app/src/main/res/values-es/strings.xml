@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Microbit Ceibal</string>
+    <string name="flash_succes">El flasheo fue exitoso</string>
+    <string name="no_board_connected" >No hay placas conectadas</string>
+    <string name="board_name">Nombree</string>
+    <string name="board_uid"> UID</string>
+    <string name="file_name">Nombre de archivo</string>
+    <string name="file_path">Ruta de archivo</string>
+    <string name="file_date">18/06/2019</string>
+    <string name="flash_unsucces">El proceso no fue exitoso</string>
+    <string name="got_to_make_code">Ir a Makecode</string>
+</resources>

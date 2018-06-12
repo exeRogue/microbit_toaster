@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">project_toaster</string>
+    <string name="action_settings">Settings</string>
+    <string name="no_device_connected">Device is not connected</string>
+    <string name="flash_succes">The microbits was succesfully flashed</string>
+    <string name="no_board_connected" >No board is connected</string>
+    <string name="board_name">Board Name</string>
+    <string name="board_uid">Board UID</string>
+    <string name="file_name">File Name</string>
+    <string name="file_path">File path</string>
+    <string name="file_date">18/06/2019</string>
+    <string name="flash_unsucces">Flash wasnt successfull</string>
+    <string name="got_to_make_code">Go to Make Code</string>
+</resources>
