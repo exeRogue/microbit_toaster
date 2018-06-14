@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity(), ToasterMVP.View{
     private lateinit var viewBaordsAdapter: BoardAdapter
     lateinit var progressbar:ProgressBar
     lateinit var permissionIntent:PendingIntent;
+    lateinit var flashDialog:IFlashDialog
     var ACTION_USB_PERMISSION: String? = null
     val ACTION_USB_ATTACHED = "android.hardware.usb.action.USB_DEVICE_ATTACHED"
     val ACTION_USB_DETACHED = "android.hardware.usb.action.USB_DEVICE_DETACHED"
@@ -118,18 +119,15 @@ class MainActivity : AppCompatActivity(), ToasterMVP.View{
     }
 
     override fun startProgressBarToast() {
-        progressBarToast.visibility = View.VISIBLE
-        progressBarToast.max = 100
-        progressBarToast.progress = 0
-
-
+        flashDialog.startDialog()
     }
+
     override fun setProgressBarToastProgress(progress: Int?) {
-        progressBarToast.progress = progress?:0
+        flashDialog.setProgress(progress)
     }
 
     override fun endProgressBarToast() {
-        progressBarToast.visibility = View.GONE
+        flashDialog.endDialog()
     }
 
     lateinit var presenter: ToasterMVP.Presenter
@@ -148,7 +146,7 @@ class MainActivity : AppCompatActivity(), ToasterMVP.View{
         viewBaordsAdapter = BoardAdapter(presenter)
         recyclerViewBoards.setAdapter(viewBaordsAdapter)
         recyclerViewBoards.setLayoutManager(LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
+        flashDialog = FlashDialog(MainActivity@this)
         ACTION_USB_PERMISSION = this.packageName + ".USB_PERMISSION"
         permissionIntent = PendingIntent.getBroadcast(this, 0,
                 Intent(ACTION_USB_PERMISSION), 0)
@@ -201,7 +199,7 @@ class MainActivity : AppCompatActivity(), ToasterMVP.View{
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.go_to_make_codej -> web_page_open("https://makecode.microbit.org/")
+            R.id.go_to_make_code -> web_page_open("https://makecode.microbit.org/")
             else -> super.onOptionsItemSelected(item)
         }
     }
