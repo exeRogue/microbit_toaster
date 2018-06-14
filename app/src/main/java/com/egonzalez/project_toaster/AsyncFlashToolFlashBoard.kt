@@ -36,7 +36,12 @@ class AsyncFlashToolFlashBoard(val mView: ToasterMVP.View,
 
     override fun onPreExecute() {
         super.onPreExecute()
-        mView.startProgressBarToast()
+        try {
+
+            mView.startProgressBarToast()
+        }catch (e:Exception){
+            Log.d(TAG, e.toString())
+        }
     }
 
     override fun doInBackground(vararg params: String): Boolean {
